@@ -39,3 +39,8 @@ ng serve
 - Crear una base de datos llamada inventario_db
 - Ejecutar el script schema.sql ubicado en la carpeta /database
 - Configurar las credenciales en el archivo application.properties
+
+### AUTORES
+- Natanael Lima
+- Maximiliano Gaitan
+- Mateo Loto
