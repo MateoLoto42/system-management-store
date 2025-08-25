@@ -1,2 +1,2 @@
-# prueba
+# SISTEMA PUNTO DE VENTA Y CONTROL DE INVENTARIO
 Proyecto de prueba
