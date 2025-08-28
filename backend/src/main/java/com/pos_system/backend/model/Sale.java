@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -23,5 +25,14 @@ public class Sale {
     private LocalDate date;
     @Column(name = "total")
     private int total;
+
+    //RELACION MUCHOS A UNO CON USUARIO
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    //RELACION UNO A MUCHOS CON DETALLE VENTA
+    @OneToMany(mappedBy = "sale",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<SaleDetail> details = new ArrayList<>();
 
 }

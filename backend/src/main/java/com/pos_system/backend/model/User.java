@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,5 +28,12 @@ public class User {
     private String rol;
     @Column(name = "state")
     private boolean state;
+
+    //RELACION UNO A MUCHOS
+    /*
+
+     */
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Sale> saleList = new ArrayList<>();
 
 }

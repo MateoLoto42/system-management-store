@@ -22,4 +22,14 @@ public class SaleDetail {
     @Column(name = "subtotal")
     private int subtotal;
 
+    //RELACION MUCHOS A UNO CON VENTA
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sale_id")
+    private Sale sale;
+
+    //RELACION MUCHOS A UNO CON PRODUCTO
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private Product product;
+
 }

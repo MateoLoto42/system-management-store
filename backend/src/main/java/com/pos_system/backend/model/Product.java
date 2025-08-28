@@ -28,4 +28,13 @@ public class Product {
     @Column(name = "state")
     private boolean state;
 
+    //RELACION MUCHOS A UNO
+    /*
+        El valor que tiene el JoinColumn -> name = "category_id" es el nombre que tomara
+        la columna de la clave foranea en la tabla Producto
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
 }
