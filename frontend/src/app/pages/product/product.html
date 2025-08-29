@@ -1,0 +1,95 @@
+<section class="text-white">
+  <!-- Header de la página -->
+  <header class="h-18 mb-10 rounded-3xl flex items-center justify-between px-6 bg-gradient-to-r from-stone-700/40 to-stone-700/30">
+    <h1 class="text-2xl font-bold">Productos</h1>
+    <button class="bg-white text-stone-700 rounded-full p-3 shadow-md">⚙️</button>
+  </header>
+
+  <!-- Grid principal -->
+  <div class="grid grid-cols-4 gap-4 mb-6">
+    <!-- Card Métrica -->
+    <div class="bg-stone-600/40 rounded-2xl p-4 flex flex-col justify-between">
+      <h2 class="text-sm text-stone-400">Total Nuevos</h2>
+      <p class="text-3xl font-bold">123</p>
+    </div>
+
+    <div class="bg-stone-600/35 rounded-2xl p-4 flex flex-col justify-between">
+      <h2 class="text-sm text-stone-400">Stock Disponible</h2>
+      <p class="text-3xl font-bold">4,567</p>
+    </div>
+
+    <div class="bg-stone-500/30 rounded-2xl p-4 flex flex-col justify-between">
+      <h2 class="text-sm text-stone-400">Ventas del Mes</h2>
+      <p class="text-3xl font-bold">$8,945</p>
+    </div>
+
+    <div class="bg-stone-500/25 rounded-2xl p-4 flex flex-col justify-between">
+      <h2 class="text-sm text-stone-400">Proveedores Activos</h2>
+      <p class="text-3xl font-bold">34</p>
+    </div>
+  </div>
+
+  <!-- Tabla de productos -->
+  <div class="bg-gradient-to-r from-stone-700/40 to-stone-700/30 rounded-2xl p-6">
+    <!-- Header tabla -->
+    <div class="flex justify-between items-center mb-4 ">
+      <!-- Buscador + filtros -->
+      <div class="flex items-center space-x-2">
+        <input type="text" placeholder="Buscar producto..." 
+          class="px-3 py-2 rounded-lg bg-stone-700/50 border border-stone-600 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm" />
+        <button class="px-3 py-2 rounded-lg bg-stone-700/50 border border-stone-600 text-sm">Filtrar</button>
+        <button class="px-3 py-2 rounded-lg bg-stone-700/50 border border-stone-600 text-sm">Estado</button>
+      </div>
+      <!-- Botones acción -->
+      <div class="flex items-center space-x-2">
+        <button class="px-4 py-2 rounded-lg bg-stone-700/50 hover:bg-stone-600 border border-stone-600 text-sm font-medium">+ Add Product</button>
+        <button class="px-4 py-2 rounded-lg bg-stone-700/50 hover:bg-stone-600 border border-stone-600 text-sm font-medium">Exportar</button>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="overflow-x-auto border-1 rounded-lg border-stone-100/15 ">
+      <table class="w-full text-left border-collapse">
+        <thead class="bg-stone-200/10 text-stone-300 text-sm">
+          <tr>
+            <th class="px-4 py-2">Producto</th>
+            <th class="px-4 py-2">Categoría</th>
+            <th class="px-4 py-2">Stock</th>
+            <th class="px-4 py-2">Precio</th>
+            <th class="px-4 py-2">Estado</th>
+            <th class="px-4 py-2 text-right">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="text-stone-200 text-sm divide-y divide-stone-700/40">
+          <tr>
+            <td class="px-4 py-3">Producto A</td>
+            <td class="px-4 py-3">Electrónica</td>
+            <td class="px-4 py-3">56</td>
+            <td class="px-4 py-3">$120</td>
+            <td class="px-4 py-3">
+              <span class="px-2 py-1 text-xs rounded-full bg-green-500/20 text-green-400">Activo</span>
+            </td>
+            <td class="px-4 py-3 text-right space-x-2">
+              <button class="px-2 py-1 bg-stone-700/50 rounded text-xs">Editar</button>
+              <button class="px-2 py-1 bg-red-600/70 rounded text-xs">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3">Producto B</td>
+            <td class="px-4 py-3">Ropa</td>
+            <td class="px-4 py-3">120</td>
+            <td class="px-4 py-3">$45</td>
+            <td class="px-4 py-3">
+              <span class="px-2 py-1 text-xs rounded-full bg-yellow-500/20 text-yellow-400">Pendiente</span>
+            </td>
+            <td class="px-4 py-3 text-right space-x-2">
+              <button class="px-2 py-1 bg-stone-700/50 rounded text-xs">Editar</button>
+              <button class="px-2 py-1 bg-red-600/70 rounded text-xs">Eliminar</button>
+            </td>
+          </tr>
+          <!-- Más filas... -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,109 @@
+<aside class="text-white shadow-xl w-64 h-screen flex flex-col">
+  <!-- Logo centrado -->
+  <div class="flex items-center justify-center mt-6 mb-6">
+      <h1 class="text-2xl">My</h1> <h1 class="text-red-50 font-bold text-4xl font-serif">CRM</h1> 
+  </div>
+  <!-- Menú -->
+  <nav class="flex-1 px-4 space-y-2">
+    <a routerLink="/dashboard"  routerLinkActive="bg-stone-700" class="flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+      <div class="bg-stone-700 py-2 px-2 rounded-md" >
+          <lucide-angular [img]="LayoutDashboard" class="w-5 h-5 text-stone-100"></lucide-angular>
+      </div>
+      <span class="ml-2">Dashboard</span>
+    </a>
+    <a routerLink="/product"  routerLinkActive="bg-stone-700" class=" flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+       <lucide-angular [img]="Package" class="w-5 h-5 text-stone-100"></lucide-angular>
+      <span class="ml-2">Productos</span>
+    </a>
+    <a routerLink="/sale"  routerLinkActive="bg-stone-700" class=" flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+       <lucide-angular [img]="ShoppingCart" class="w-5 h-5 text-stone-100"></lucide-angular>
+      <span class="ml-2">Ventas</span>
+    </a>
+    <a routerLink="/customer"  routerLinkActive="bg-stone-700" class=" flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+       <lucide-angular [img]="Users" class="w-5 h-5 text-stone-100"></lucide-angular>
+      <span class="ml-2">Clientes</span>
+    </a>
+    <a routerLink="/supplier"  routerLinkActive="bg-stone-700" class=" flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+       <lucide-angular [img]="Container" class="w-5 h-5 text-stone-100"></lucide-angular>
+      <span class="ml-2">Proveedores</span>
+    </a>
+    <a routerLink="/user"  routerLinkActive="bg-stone-700" class=" flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+       <lucide-angular [img]="BookUser" class="w-5 h-5 text-stone-100"></lucide-angular>
+      <span class="ml-2">Usuarios</span>
+    </a>
+    <a routerLink="/report"  routerLinkActive="bg-stone-700" class="flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+       <lucide-angular [img]="FileStack" class="w-5 h-5 text-stone-100"></lucide-angular>
+      <span class="ml-2">Reportes</span>
+    </a>
+    <a routerLink="/security"  routerLinkActive="bg-stone-700" class="flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+       <lucide-angular [img]="ShieldCheck" class="w-5 h-5 text-stone-100"></lucide-angular>
+      <span class="ml-2">Seguridad</span>
+    </a>
+    <a routerLink="/config"  routerLinkActive="bg-stone-700" class="flex items-center px-3 py-2 rounded-lg hover:bg-stone-700 transition">
+       <lucide-angular [img]="Cog" class="w-5 h-5 text-stone-100"></lucide-angular>
+      <span class="ml-2">Configuración</span>
+    </a>
+  </nav>
+<!-- Navbar -->
+<nav class="items-center">
+  <!-- Contenedor padre -->
+  <div class="px-4 mb-4 relative">
+    <!-- Botón -->
+    <button (click)="toggleDropdown()"
+      class="cursor-pointer flex items-center justify-between w-full px-3 py-2 rounded-lg border-1 border-stone-100/20  hover:bg-stone-700 transition">
+      <!-- Avatar + datos -->
+      <div class="flex items-center space-x-3">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D35AQF3Uh1geOyDgA/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1704897880867?e=1757001600&v=beta&t=K1f-K9rr4D0W9pldokpV-oV8-gOk0GqspYsfjtkGWC4"
+          alt="Perfil"
+          class="w-10 h-10 rounded-full"
+        />
+        <div class="text-left">
+          <p class="text-sm font-semibold text-white">Usuario Kiosco</p>
+          <span class="text-xs text-stone-400">Administrador</span>
+        </div>
+      </div>
+      <!-- Flecha -->
+      <lucide-angular [img]="ChevronRight" class="w-5 h-5 text-stone-400"></lucide-angular>
+    </button>
+
+    <!-- Dropdown -->
+     @if(isOpen){
+      <div  
+      class="absolute bottom-0 left-full  ml-2 w-48 bg-stone-800/95 rounded-xl shadow-lg border border-stone-700/40 overflow-hidden z-50 "
+    >
+      <a
+        href="#"
+        class="flex items-center px-4 py-2 text-sm text-stone-200 hover:bg-stone-700/50"
+      >
+        <lucide-angular [img]="User" class="w-4 h-4 mr-2"></lucide-angular>
+        Mi perfil
+      </a>
+      <a
+        href="#"
+        class="flex items-center px-4 py-2 text-sm text-stone-200 hover:bg-stone-700/50"
+      >
+        <lucide-angular [img]="Profile" class="w-4 h-4 mr-2"></lucide-angular>
+        Subir foto
+      </a>
+      <a
+        href="#"
+        class="flex items-center px-4 py-2 text-sm text-stone-200 hover:bg-stone-700/50"
+      >
+        <lucide-angular [img]="Settings" class="w-4 h-4 mr-2"></lucide-angular>
+        Configuración
+      </a>
+      <a
+        href="#"
+        class="flex items-center px-4 py-2 text-sm text-red-400 hover:bg-red-500/20"
+      >
+        <lucide-angular [img]="LogOut" class="w-4 h-4 mr-2"></lucide-angular>
+        Cerrar sesión
+      </a>
+    </div>
+     }
+    
+  </div>
+</nav>
+
+</aside>
