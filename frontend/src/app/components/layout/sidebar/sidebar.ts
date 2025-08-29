@@ -16,7 +16,8 @@ import {
   ChevronRight,
   ImageIcon,
   Settings,
-  BookUser
+  BookUser,
+  Tag
 } from 'lucide-angular';
 
 @Component({
@@ -41,6 +42,7 @@ export class Sidebar {
   readonly Profile= ImageIcon;
   readonly Settings= Settings;
   readonly BookUser=BookUser;
+  Tag=Tag;
 
 
   isOpen = false;

@@ -1,1 +1,142 @@
-<p>sale works!</p>
+<section class="text-white">
+  <app-header></app-header>
+
+  <div class="grid grid-cols-4 grid-rows-5 gap-4">
+    <!-- Columna izquierda: Productos -->
+    <div class="col-span-3 row-span-5 bg-gradient-to-br from-stone-300/15 to-stone-400/10 rounded-2xl p-4">
+      
+      <!-- Header -->
+      <div class="grid grid-rows-2 gap-4 mb-4">
+        <!-- Row 1 -->
+        <div class="flex justify-between items-center">
+          <h2 class="text-xl font-bold">Carrito de compra</h2>
+          <div class="flex items-center gap-2">
+            <input type="text" placeholder="Buscar producto o escanear"
+              class="px-3 py-2 rounded-lg bg-stone-800/50 border border-stone-700/50 text-sm w-64 focus:outline-none">
+            <button class="p-2 rounded-lg bg-stone-700 hover:bg-stone-600">
+              <lucide-angular [img]="Search" class="w-5 h-5"></lucide-angular>
+            </button>
+          </div>
+        </div>
+
+        <!-- Row 2: categorías -->
+        <div class="flex flex-wrap gap-2">
+          <button class="px-3 py-1 text-xs rounded-full bg-stone-600 hover:bg-stone-500">All</button>
+          <button class="px-3 py-1 text-xs rounded-full bg-blue-600/60 hover:bg-blue-500/80">Mercadería</button>
+          <button class="px-3 py-1 text-xs rounded-full bg-teal-600/60 hover:bg-teal-500/80">Lácteos</button>
+          <button class="px-3 py-1 text-xs rounded-full bg-orange-600/60 hover:bg-orange-500/80">Snacks</button>
+        </div>
+      </div>
+
+      <!-- Productos -->
+      <div class="grid grid-cols-6 gap-4">
+        <!-- Card producto ejemplo -->
+         @for(p of products; track p.id){
+            <div class="hover:bg-stone-500/40 border-1 border-stone-300/10 rounded-xl p-2 flex flex-col justify-between">
+              
+                    <div>
+                    <h3 class="text-sm font-bold">{{ p.title }}</h3>
+                    <p class="text-xs text-stone-400">{{ p.description }}</p>
+                    <p class="text-sm font-semibold mt-1">$ {{ p.price }}</p>
+                    
+                  </div>
+                 
+                
+                <div class="flex justify-between items-center mt-3">
+                    <div class="flex items-center gap-2">
+                    <button class="w-6 h-6 flex items-center justify-center rounded-md bg-stone-500/70 hover:bg-stone-500">-</button>
+                    <span class="text-sm">60</span>
+                    <!--<input 
+                      maxlength="4" 
+                      value="60" 
+                      class="w-8 text-sm rounded px-2 py-1 text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      oninput="if (this.value.length > 4) this.value = this.value.slice(0, 4)">-->
+                    <button class="w-6 h-6 flex items-center justify-center rounded-md bg-stone-500/70 hover:bg-stone-500">+</button>
+                    </div>
+                    <button class="bg-lime-700 hover:bg-lime-600 text-xs px-3 py-1 rounded-md">Añadir</button>
+                </div>
+            </div>
+         }
+        
+      </div>
+    </div>
+
+    <!-- Columna derecha: Carrito -->
+    <div class="row-span-5 col-start-4 bg-gradient-to-br from-stone-300/15 to-stone-400/10 rounded-2xl p-4 h-[80vh] flex flex-col">
+      
+      <!-- Encabezado -->
+      <div class="mb-4 flex justify-between items-center">
+        <h2 class="text-lg font-bold">Orden #12345</h2>
+        <div class="grid grid-cols-2 gap-2">
+          <button class="p-2 rounded-lg border-1 border-stone-200/20 text-stone-100 hover:bg-stone-600">
+                <lucide-angular [img]="Edit" class="w-5 h-5"></lucide-angular>
+          </button>
+          <button class="p-2 rounded-lg border-1 border-stone-200/20 text-red-400 hover:bg-stone-600">
+                <lucide-angular [img]="Trash" class="w-5 h-5"></lucide-angular>
+          </button>
+        </div>
+        
+      </div>
+
+      <!-- Lista de productos -->
+      <div class="rounded-lg p-2 mb-4 ">
+        <h2 class="text-lg font-bold">Items Detail</h2>
+        
+        <div class="grid grid-cols-3 text-sm py-1 ">
+          <span>2x</span><span>Leche</span><span class="text-right font-medium">$4.00</span>
+        </div>
+        <div class="grid grid-cols-3 text-sm py-1">
+          <span>1x</span><span>Pan</span><span class="text-right font-medium">$1.50</span>
+        </div>
+        <div class="grid grid-cols-3 text-sm py-1">
+          <span>3x</span><span>Queso</span><span class="text-right font-medium">$6.00</span>
+        </div>
+      </div>
+
+      <!-- Resumen -->
+      <div class="mb-4">
+        <h2 class="text-lg font-bold mb-2">Resumen de pago</h2>
+        <div class="flex justify-between text-sm">
+          <span>Subtotal</span><span>$11.50</span>
+        </div>
+        <div class="flex justify-between text-sm font-bold">
+          <span>Total</span><span>$11.50</span>
+        </div>
+      </div>
+
+      <!-- Método de pago -->
+      <div class="mb-4">
+        <h2 class="text-lg font-bold mb-2">Método de pago</h2>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-stone-700 cursor-pointer">
+            <input type="radio" name="pago" value="card" class="accent-cyan-600">
+            Tarjeta
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-stone-700 cursor-pointer">
+            <input type="radio" name="pago" value="cash" class="accent-cyan-600">
+            Efectivo
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-stone-700 cursor-pointer">
+            <input type="radio" name="pago" value="qr" class="accent-cyan-600">
+            QR
+          </label>
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-stone-700 cursor-pointer">
+            <input type="radio" name="pago" value="transfer" class="accent-cyan-600">
+            Transferencia
+          </label>
+        </div>
+      </div>
+
+      <!-- Botones finales -->
+      <div class="mt-auto flex justify-between gap-2">
+        <button class="w-1/2 bg-stone-600 hover:bg-stone-500 py-2 rounded-lg flex items-center justify-center gap-2">
+          <lucide-angular [img]="Printer" class="w-4 h-4"></lucide-angular> Print
+        </button>
+        <button class="w-1/2 bg-cyan-600 hover:bg-cyan-500 py-2 rounded-lg flex items-center justify-center gap-2">
+          <lucide-angular [img]="CheckCircle" class="w-4 h-4"></lucide-angular> Pagar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+

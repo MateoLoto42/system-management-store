@@ -8,11 +8,13 @@ import { Config } from './pages/config/config';
 import { User } from './pages/user/user';
 import { Supplier } from './pages/supplier/supplier';
 import { Customer } from './pages/customer/customer';
+import { Category } from './pages/category/category';
 
 export const routes: Routes = [ 
 { path: 'dashboard', component: Dashboard },
 { path: 'product', component: Product },
 { path: 'report', component: Report },
+{ path: 'category', component: Category },
 { path: 'sale', component: Sale },
 { path: 'security', component: Security },
 { path: 'config', component: Config },
