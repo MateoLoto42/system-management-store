@@ -3,6 +3,7 @@ package com.pos_system.backend.controller;
 import com.pos_system.backend.model.Product;
 import com.pos_system.backend.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,9 +15,9 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-    @GetMapping("/get")
-    public List<Product> getProducts(){
-        return productService.getProducts();
+    @GetMapping("/all")
+    public ResponseEntity<List<Product>> getProducts(){
+        return ResponseEntity.ok(productService.getProducts());
     }
 
     @PostMapping("/create")
