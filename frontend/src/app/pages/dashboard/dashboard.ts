@@ -30,7 +30,6 @@ export class Dashboard {
     { id: 6,fecha: '06/09/2025', cliente: 'Sofía Díaz', producto: 'Producto F', monto: 46000 },
     { id: 7,fecha: '07/09/2025', cliente: 'Pedro Fernández', producto: 'Producto G', monto: 38000 },
     { id: 8,fecha: '08/09/2025', cliente: 'Laura Méndez', producto: 'Producto H', monto: 52000 },
-    { id: 9,fecha: '08/09/2025', cliente: 'Laura Méndez', producto: 'Producto H', monto: 52000 },
   ];
 
 

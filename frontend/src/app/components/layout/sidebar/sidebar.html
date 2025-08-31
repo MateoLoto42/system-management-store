@@ -71,34 +71,20 @@
 
     <!-- Dropdown -->
      @if(isOpen){
-      <div  
-      class="absolute bottom-0 left-full  ml-2 w-48 bg-stone-800/95 rounded-xl shadow-lg border border-stone-700/40 overflow-hidden z-50 "
-    >
-      <a
-        href="#"
-        class="flex items-center px-4 py-3 text-sm text-stone-200 hover:bg-stone-700/50"
-      >
+      <div  class="p-1 absolute bottom-0 left-full  ml-2 w-48 bg-stone-800 rounded-xl shadow-lg border border-stone-700/40 overflow-hidden z-50 ">
+      <a href="#" class="rounded-lg flex items-center px-4 py-2 text-sm text-stone-200 hover:bg-stone-700/50">
         <lucide-angular [img]="User" class="w-4 h-4 mr-2"></lucide-angular>
         Mi perfil
       </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 text-sm text-stone-200 hover:bg-stone-700/50"
-      >
+      <a href="#" class="rounded-lg flex items-center px-4 py-2 text-sm text-stone-200 hover:bg-stone-700/50">
         <lucide-angular [img]="Profile" class="w-4 h-4 mr-2"></lucide-angular>
         Subir foto
       </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 text-sm text-stone-200 hover:bg-stone-700/50"
-      >
+      <a href="#" class="rounded-lg flex items-center px-4 py-2 text-sm text-stone-200 hover:bg-stone-700/50">
         <lucide-angular [img]="Settings" class="w-4 h-4 mr-2"></lucide-angular>
         Configuración
       </a>
-      <a
-        href="#"
-        class="flex items-center px-4 py-2 text-sm text-red-300 hover:bg-red-400/15"
-      >
+      <a href="#" class="rounded-lg flex items-center px-4 py-2 text-sm text-red-300 hover:bg-red-400/15">
         <lucide-angular [img]="LogOut" class="w-4 h-4 mr-2"></lucide-angular>
         Cerrar sesión
       </a>

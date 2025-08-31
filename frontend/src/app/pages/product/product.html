@@ -8,29 +8,29 @@
   <!-- Grid principal -->
   <div class="grid grid-cols-4 gap-5 mb-6">
     <!-- Card Métrica -->
-    <div class="bg-stone-600/35 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
       <h2 class="text-sm text-stone-400">Total Nuevos</h2>
       <p class="text-3xl font-bold">123</p>
     </div>
 
-    <div class="bg-stone-600/35 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
       <h2 class="text-sm text-stone-400">Stock Disponible</h2>
       <p class="text-3xl font-bold">4,567</p>
     </div>
 
-    <div class="bg-stone-600/30 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
       <h2 class="text-sm text-stone-400">Ventas del Mes</h2>
       <p class="text-3xl font-bold">$8,945</p>
     </div>
 
-    <div class="bg-stone-600/30 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
       <h2 class="text-sm text-stone-400">Proveedores Activos</h2>
       <p class="text-3xl font-bold">34</p>
     </div>
   </div>
 
   <!-- Tabla de productos -->
-  <div class="bg-gradient-to-r from-stone-700/40 to-stone-700/30 rounded-2xl p-6">
+  <div class="bg-stone-400/10 rounded-2xl p-6">
     <!-- Header tabla -->
     <div class="flex justify-between items-center mb-4 ">
       <!-- Buscador + filtros -->
@@ -101,20 +101,20 @@
               }
               
             </td>
-            <td class="py-3 text-right relative">
-                <div class="relative inline-block text-left">
+            <td class="py-3 text-center relative">
+                <div class="relative inline-block">
                   <!-- Botón del menú -->
-                  <button (click)="toggleMenu(product.id)" class="p-2 rounded-full hover:bg-neutral-700/60 cursor-pointer">
+                  <button (click)="toggleMenu(product.id)" class="p-2 rounded-full hover:bg-stone-600/60 cursor-pointer">
                     <lucide-angular [img]="ellipsis" class="w-5 h-5"></lucide-angular>
                   </button>
 
                   <!-- Dropdown -->
                   @if(openMenuId === product.id){
-                    <div class="absolute right-0  mt-2 w-36 bg-neutral-800 text-white rounded-xl shadow-lg border border-neutral-700/50 z-50">
-                    <ul class=" text-sm">
+                    <div class="absolute right-0  mt-2 w-36 bg-stone-800 text-white rounded-xl shadow-lg border border-neutral-700/50 z-50">
+                    <ul class=" text-sm p-1">
                       <li>
                         <button
-                          class="w-full text-left px-4 py-2 rounded-t-xl hover:bg-neutral-700 flex items-center space-x-2"
+                          class="w-full text-left px-4 py-2 rounded-lg text-stone-200 hover:bg-stone-700/50 flex items-center space-x-2"
                           (click)="viewProduct(product)"
                         >
                           <lucide-angular [img]="view" class="w-4 h-4"></lucide-angular>
@@ -123,7 +123,7 @@
                       </li>
                       <li>
                         <button
-                          class="w-full text-left px-4 py-2 hover:bg-neutral-700 flex items-center space-x-2"
+                          class="w-full text-left px-4 py-2 rounded-lg text-stone-200 hover:bg-blue-700 flex items-center space-x-2"
                           (click)="editProduct(product)"
                         >
                           <lucide-angular [img]="edit" class="w-4 h-4"></lucide-angular>
@@ -132,7 +132,7 @@
                       </li>
                       <li>
                         <button
-                          class="w-full text-left px-4 py-2 rounded-b-xl hover:bg-red-600/60 flex items-center space-x-2"
+                          class="w-full text-left px-4 py-2 rounded-lg text-stone-200 hover:bg-red-600/60 flex items-center space-x-2"
                           (click)="deleteProduct(product)"
                         >
                           <lucide-angular [img]="delete" class="w-4 h-4"></lucide-angular>

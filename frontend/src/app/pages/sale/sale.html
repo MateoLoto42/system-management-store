@@ -3,7 +3,7 @@
 
   <div class="grid grid-cols-4 grid-rows-5 gap-4">
     <!-- Columna izquierda: Productos -->
-    <div class="col-span-3 row-span-5 bg-gradient-to-br from-stone-300/15 to-stone-400/10 rounded-2xl p-4">
+    <div class="col-span-3 row-span-5 bg-stone-300/10 rounded-2xl p-4">
       
       <!-- Header -->
       <div class="grid grid-rows-2 gap-4 mb-4">
@@ -32,30 +32,27 @@
       <div class="grid grid-cols-6 gap-4">
         <!-- Card producto ejemplo -->
          @for(p of products; track p.id){
-            <div class="hover:bg-stone-500/40 border-1 border-stone-300/10 rounded-xl p-2 flex flex-col justify-between">
-              
-                    <div>
+            <div class="hover:bg-stone-800/40 border-1 border-stone-300/10 rounded-xl p-3 flex flex-col justify-between">
+                <div class="flex justify-between items-start">
+                  <!-- Superior izquierda: Nombre + Descripción -->
+                  <div class="flex flex-col">
                     <h3 class="text-sm font-bold">{{ p.title }}</h3>
                     <p class="text-xs text-stone-400">{{ p.description }}</p>
-                    <p class="text-sm font-semibold mt-1">$ {{ p.price }}</p>
-                    
                   </div>
-                 
-                
+                  <!-- Superior derecha: Botón + -->
+                  <button class="bg-lime-700 hover:bg-lime-600 text-lg px-3 py-1 rounded-full">+</button>
+                </div>
                 <div class="flex justify-between items-center mt-3">
-                    <div class="flex items-center gap-2">
+                  <!-- Inferior izquierda: Precio -->
+                  <p class="text-lg font-semibold">$ {{ p.price }}</p>
+                  <!-- Inferior derecha: Controles cantidad -->
+                  <div class="flex items-center gap-2">
                     <button class="w-6 h-6 flex items-center justify-center rounded-md bg-stone-500/70 hover:bg-stone-500">-</button>
                     <span class="text-sm">60</span>
-                    <!--<input 
-                      maxlength="4" 
-                      value="60" 
-                      class="w-8 text-sm rounded px-2 py-1 text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      oninput="if (this.value.length > 4) this.value = this.value.slice(0, 4)">-->
                     <button class="w-6 h-6 flex items-center justify-center rounded-md bg-stone-500/70 hover:bg-stone-500">+</button>
-                    </div>
-                    <button class="bg-lime-700 hover:bg-lime-600 text-xs px-3 py-1 rounded-md">Añadir</button>
+                  </div>
                 </div>
-            </div>
+              </div>
          }
         
       </div>
