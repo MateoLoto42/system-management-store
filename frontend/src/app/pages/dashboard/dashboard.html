@@ -5,9 +5,9 @@
   <!-- Grid principal -->
   <div class="grid grid-cols-4 grid-rows-5 gap-5">
     <!-- 1: Gráfico estadístico -->
-    <div class="col-span-2 row-span-2 bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="col-span-2 row-span-2 bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
       <div class="rounded-xl h-56">
-          <h3 class="text-lg font-semibold mb-4 ">Stock Minimo</h3>
+          <h3 class="text-lg font-bold mb-4 ">Stock Minimo</h3>
           <canvas baseChart 
                   [data]="data" 
                   [options]="barChartOptions" 
@@ -17,9 +17,9 @@
     </div>
 
     <!-- 2: Ganancias totales -->
-    <div class="col-span-2 row-span-2 bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="col-span-2 row-span-2 bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
       <div class="rounded-xl h-56">
-          <h3 class="text-lg font-semibold mb-4 ">Ganacias Totales Mensuales</h3>
+          <h3 class="text-lg font-bold mb-4 ">Ganacias Totales Mensuales</h3>
           <canvas baseChart 
                   [data]="barChartData" 
                   [options]="barChartOptions" 
@@ -29,18 +29,48 @@
     </div>
 
     <!-- 3: Historial (tabla) -->
-    <div class="col-span-2 row-span-3 bg-stone-400/10 rounded-2xl p-4 overflow-auto">
+    <div class="col-span-2 row-span-3 bg-neutral-400/10 rounded-2xl p-4 overflow-auto">
       <div class="flex justify-between items-center mb-4">
-        <h3 class="text-lg font-semibold mb-4">Historial total de ventas</h3>
-        <div class="flex gap-2">
-          <button class="px-4 py-2 rounded-lg bg-stone-700/50 hover:bg-stone-600 border border-stone-600 text-sm font-medium">Dia</button>
-          <button class="px-4 py-2 rounded-lg bg-stone-700/50 hover:bg-stone-600 border border-stone-600 text-sm font-medium">Semana</button>
-          <button class="px-4 py-2 rounded-lg bg-stone-700/50 hover:bg-stone-600 border border-stone-600 text-sm font-medium">Mes</button>
+        <h3 class="text-lg font-bold mb-4">Historial de ventas</h3>
+          <div class="relative inline-block text-left">
+          <!-- Botón principal -->
+          <button (click)="toggleMenu()"
+            class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-neutral-700/60 hover:bg-neutral-700 border border-neutral-700 text-sm font-medium">
+            <lucide-angular [img]="filter" class="w-5 h-5"></lucide-angular>
+            Filtrar
+          </button>
+
+          <!-- Dropdown -->
+          @if(open){
+            <div 
+            class="absolute top-0 right-full w-35 mr-2 rounded-lg shadow-lg bg-neutral-800 border border-neutral-700 z-20">
+            <div class="py-1 flex flex-col">
+              <button
+                (click)="selectOption('Último día')"
+                class="px-4 py-2 text-sm text-neutral-200 hover:bg-neutral-700 text-left"
+              >
+                Último día
+              </button>
+              <button
+                (click)="selectOption('Última semana')"
+                class="px-4 py-2 text-sm text-neutral-200 hover:bg-neutral-700 text-left"
+              >
+                Última semana
+              </button>
+              <button
+                (click)="selectOption('Último mes')"
+                class="px-4 py-2 text-sm text-neutral-200 hover:bg-neutral-700 text-left"
+              >
+                Último mes
+              </button>
+            </div>
+          </div>
+          }
         </div>
       </div>
-        <div class="overflow-x-auto border-1 rounded-lg border-stone-100/15 ">
+        <div class="overflow-x-auto border-1 rounded-lg border-neutral-100/15 ">
           <table class="w-full text-left border-collapse">
-            <thead class="bg-stone-200/10 text-stone-300 text-sm">
+            <thead class="bg-neutral-200/10 text-neutral-300 text-sm">
               <tr>
                 <th class="px-4 py-2 text-left text-sm font-semibold text-gray-200">Fecha</th>
                 <th class="px-4 py-2 text-left text-sm font-semibold text-gray-200">Cliente</th>
@@ -48,9 +78,9 @@
                 <th class="px-4 py-2 text-left text-sm font-semibold text-gray-200">Monto</th>
               </tr>
             </thead>
-            <tbody class="text-stone-200 text-sm divide-y divide-stone-600/50">
+            <tbody class="text-neutral-200 text-sm divide-y divide-neutral-600/50">
               @for (sale of sales; track sale.id) {
-                <tr class="hover:bg-stone-700/20 text-sm">
+                <tr class="hover:bg-neutral-700/20 text-sm">
                   <td class="px-4 py-2 text-gray-200">{{ sale.fecha }}</td>
                   <td class="px-4 py-2 text-gray-200">{{ sale.cliente }}</td>
                   <td class="px-4 py-2 text-gray-200">{{ sale.producto }}</td>
@@ -64,18 +94,18 @@
     </div>
 
     <!-- 4: Total Ventas -->
-    <div class="col-start-3 row-start-3 bg-gradient-to-br from-lime-300/20 to-lime-400/10 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="col-start-3 row-start-3 bg-lime-400/70 rounded-2xl p-4 flex flex-col justify-between">
       <!-- Header -->
       <div class="flex items-center space-x-2 mb-4">
-        <div class="bg-lime-200/20 rounded-full p-2">
-            <lucide-angular [img]="dollar" class="w-8 h-8 text-white"></lucide-angular>
+        <div class="bg-neutral-100 rounded-full p-2">
+            <lucide-angular [img]="dollar" class="w-8 h-8 text-lime-600/60"></lucide-angular>
         </div>
-        <h2 class="text-2xl font-semibold text-white">Ventas</h2>
+        <h2 class="text-xl font-bold text-neutral-100">Ventas</h2>
       </div>
       <div class="flex justify-between items-end">
-        <p class="text-3xl font-bold text-white">1,234</p>
+        <p class="text-3xl font-bold text-lime-200">1,234</p>
         <div class="flex flex-col items-end">
-          <span class="text-green-400 font-semibold">+2.4%</span>
+          <span class="text-green-200 font-semibold">+2.4%</span>
           <span class="text-xs text-lime-100">Último mes</span>
         </div>
       </div>
@@ -83,90 +113,86 @@
 
 
     <!-- 5: Usuarios -->
-    <div class="col-start-4 row-start-3 bg-gradient-to-br from-sky-300/20 to-sky-400/10 rounded-2xl p-4 flex flex-col justify-between ">
+    <div class="col-start-4 row-start-3 bg-sky-400/70 rounded-2xl p-4 flex flex-col justify-between ">
       <div class="flex items-center space-x-2 mb-4">
-        <div class="bg-sky-200/20 rounded-full p-2">
-            <lucide-angular [img]="user" class="w-8 h-8 text-white"></lucide-angular>
+        <div class="bg-neutral-100 rounded-full p-2">
+            <lucide-angular [img]="user" class="w-8 h-8 text-sky-600/60"></lucide-angular>
         </div>
-        <h2 class="text-2xl font-semibold text-white">Usuarios</h2>
+        <h2 class="text-xl font-bold text-neutral-100">Usuarios</h2>
       </div>
       <div class="flex justify-between items-end">
         <!-- Total -->
-        <p class="text-3xl font-bold text-white">46</p>
+        <p class="text-3xl font-bold text-sky-200">46</p>
         <!-- Percentage -->
         <div class="flex flex-col items-end">
-          <span class="text-green-400 font-semibold">+0.4%</span>
+          <span class="text-green-200 font-semibold ">+0.4%</span>
           <span class="text-xs text-sky-100">Último mes</span>
         </div>
       </div>
     </div>
 
     <!-- 6: Stock -->
-    <div class="col-start-3 row-start-4 bg-gradient-to-br from-purple-300/20 to-purple-400/10 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="col-start-3 row-start-4 bg-orange-400/70 rounded-2xl p-4 flex flex-col justify-between">
       <div class="flex items-center space-x-2 mb-4">
-        <div class="bg-purple-200/20 rounded-full p-2">
-            <lucide-angular [img]="user" class="w-8 h-8 text-white"></lucide-angular>
+        <div class="bg-neutral-100 rounded-full p-2">
+            <lucide-angular [img]="layers" class="w-8 h-8 text-orange-600/60"></lucide-angular>
         </div>
-        <h2 class="text-2xl font-semibold text-white">Stock</h2>
+        <h2 class="text-xl font-bold text-nuetral-100">Stock</h2>
       </div>
       <div class="flex justify-between items-end">
         <!-- Total -->
-        <p class="text-3xl font-bold text-white">890</p>
+        <p class="text-3xl font-bold text-orange-200">890</p>
         <!-- Percentage -->
         <div class="flex flex-col items-end">
-          <span class="text-red-400 font-semibold">-2.4%</span>
-          <span class="text-xs text-purple-100">Último mes</span>
+          <span class="text-red-200 font-semibold">-2.4%</span>
+          <span class="text-xs text-orange-100">Último mes</span>
         </div>
       </div>
     </div>
 
     <!-- 7: Proveedores -->
-    <div class="col-start-4 row-start-4 bg-gradient-to-br from-rose-300/20 to-rose-400/10 rounded-2xl p-4 flex flex-col justify-between ">
+    <div class="col-start-4 row-start-4 bg-rose-400/70 rounded-2xl p-4 flex flex-col justify-between ">
       <div class="flex items-center space-x-2 mb-4">
-        <div class="bg-rose-200/20 rounded-full p-2">
-            <lucide-angular [img]="user" class="w-8 h-8 text-white"></lucide-angular>
+        <div class="bg-neutral-100 rounded-full p-2">
+            <lucide-angular [img]="bookuser" class="w-8 h-8 text-rose-600/60"></lucide-angular>
         </div>
-        <h2 class="text-2xl font-semibold text-white">Proveedores</h2>
+        <h2 class="text-xl font-bold text-white">Proveedores</h2>
       </div>
       <div class="flex justify-between items-end">
         <!-- Total -->
-        <p class="text-3xl font-bold text-white">34</p>
+        <p class="text-3xl font-bold text-rose-200">34</p>
         <!-- Percentage -->
         <div class="flex flex-col items-end">
-          <span class="text-green-400 font-semibold">+5.4%</span>
+          <span class="text-green-200 font-semibold">+5.4%</span>
           <span class="text-xs text-rose-100">Último mes</span>
         </div>
       </div>
     </div>
 
     <!-- 8: Metodos de Pago -->
-    <div class="col-span-2 col-start-3 row-start-5 bg-gradient-to-br from-stone-200 to-stone-200 rounded-2xl p-4 flex flex-col ">
+    <div class="col-span-2 col-start-3 row-start-5 bg-neutral-400/10 rounded-2xl p-4 flex flex-col ">
       <div class="flex justify-between items-center mb-1">
-        <h3 class="text-lg font-semibold mb-4 text-stone-700">Metodos de pagos</h3>
-        <div class="flex gap-2 text-stone-800">
-          <button class="px-2 py-2 rounded-lg bg-stone-300/50 hover:bg-stone-300 border border-stone-400/50 text-sm font-medium">Dia</button>
-          <button class="px-2 py-2 rounded-lg bg-stone-300/50 hover:bg-stone-300 border border-stone-400/50 text-sm font-medium">Semana</button>
-          <button class="px-2 py-2 rounded-lg bg-stone-300/50 hover:bg-stone-300 border border-stone-400/50 text-sm font-medium">Mes</button>
-        </div>
+        <h3 class="text-lg font-semibold mb-4 text-neutral-200">Metodos de pago mas usados</h3>
+        
       </div>
-       <div class="flex justify-between overflow-x-auto">
-        <div class="flex-shrink-0 bg-stone-300 text-stone-800 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
+       <div class="flex justify-center overflow-x-auto gap-5">
+        <div class="flex-shrink-0 bg-neutral-200/5 text-neutral-100 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
           <span class="text-xs font-medium">Crédito</span>
-          <span class="text-lg font-bold">25</span>
+          <span class="text-lg font-bold">31</span>
         </div>
-        <div class="flex-shrink-0 bg-stone-300 text-stone-800 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
+        <div class="flex-shrink-0 bg-neutral-200/5 text-stone-100 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
           <span class="text-xs font-medium">Débito</span>
           <span class="text-lg font-bold">18</span>
         </div>
-        <div class="flex-shrink-0 bg-stone-300 text-stone-800 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
+        <div class="flex-shrink-0 bg-neutral-200/5 text-stone-100 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
           <span class="text-xs font-medium">Efectivo</span>
           <span class="text-lg font-bold">40</span>
         </div>
-        <div class="flex-shrink-0 bg-stone-300 text-stone-800 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
+        <div class="flex-shrink-0 bg-neutral-200/5 text-stone-100 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
           <span class="text-xs font-medium">QR</span>
           <span class="text-lg font-bold">12</span>
         </div>
-        <div class="flex-shrink-0 bg-stone-300 text-stone-800 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
+        <div class="flex-shrink-0 bg-neutral-200/5 text-stone-100 p-4 rounded-xl w-32 h-16 flex flex-col items-center justify-center">
           <span class="text-xs font-medium">Transferencia</span>
           <span class="text-lg font-bold">8</span>
         </div>

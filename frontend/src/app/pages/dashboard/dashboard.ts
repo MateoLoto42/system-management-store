@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { Header } from '../../components/layout/header/header';
 import { 
-  CircleDollarSign,
+  HandCoins,
   LucideAngularModule,
-  User,
+  Users,
+  Layers,
+  BookUser,
+  SlidersHorizontal
 } from 'lucide-angular';
 import { BaseChartDirective } from 'ng2-charts';
 
@@ -17,8 +20,23 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class Dashboard {
   //Icons
-  dollar = CircleDollarSign;
-  user = User;
+  dollar = HandCoins;
+  user = Users;
+  layers = Layers;
+  bookuser=BookUser;
+  filter=SlidersHorizontal;
+
+
+  open = false;
+
+  toggleMenu() {
+    this.open = !this.open;
+  }
+  
+  selectOption(option: string) {
+    console.log('Seleccionado:', option);
+    this.open = false; // cerrar el menú al seleccionar
+  }
 
 
   sales= [
@@ -47,7 +65,7 @@ export class Dashboard {
     datasets: [{
       label: 'Stock Minimo',
       data: [11, 16, 7, 3, 14,5,20],
-      backgroundColor: '#dbd4cc',
+      backgroundColor: '#fff',
     }]
   };
 
@@ -57,8 +75,8 @@ export class Dashboard {
       {
         label: 'Ventas ($)',
         data: [32000, 28000, 45000, 38000, 52000, 61000,32000, 18000, 49000, 28000, 23900, 11000],
-        backgroundColor: '#dbd4cc',
-        borderColor: '#dbd4cc',
+        backgroundColor: '#fff',
+        borderColor: '#fff',
       }
     ]
   };
