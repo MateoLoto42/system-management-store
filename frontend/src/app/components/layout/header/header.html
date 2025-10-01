@@ -1,12 +1,14 @@
-<header class="h-16 mb-6 rounded-3xl flex items-center justify-between px-6 bg-stone-300/10 relative">
-  <!-- Título -->
-  <h1 class="text-xl font-bold">Dashboard</h1>
+<header class="h-16 flex items-center justify-between px-4 bg-stone-300/10 relative">
+  <!-- Logo -->
+  <div class="flex items-center justify-center mt-6 mb-6">
+      <img src="assets\trut2.png" alt="" class=" h-10">
+  </div>
 
   <!-- Botón menú -->
   <button 
     (click)="toggleMenu()" 
-    class="bg-white text-neutral-700 rounded-full p-2 shadow-md focus:outline-none">
-    ☰
+    class=" text-neutral-700 rounded-full p-2 shadow-md focus:outline-none ">
+    <lucide-angular [img]="menu" class="w-5 h-5 text-neutral-100 hover:text-neutral-300 "></lucide-angular>
   </button>
 
   <!-- Menú desplegable -->

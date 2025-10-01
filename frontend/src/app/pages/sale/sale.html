@@ -1,9 +1,11 @@
 <section class="text-white">
-  <app-header></app-header>
+  <header class="h-16 mb-5 rounded-xl flex items-center justify-between px-6 bg-neutral-700/30">
+    <h1 class="text-2xl font-bold">Punto de Venta</h1>
+  </header>
 
   <div class="grid grid-cols-4 grid-rows-5 gap-4">
     <!-- Columna izquierda: Productos -->
-    <div class="col-span-3 row-span-5 bg-stone-300/10 rounded-2xl p-4">
+    <div class="col-span-3 row-span-5 bg-neutral-400/10 rounded-2xl p-4">
       
       <!-- Header -->
       <div class="grid grid-rows-2 gap-4 mb-4">
@@ -12,8 +14,8 @@
           <h2 class="text-xl font-bold">Carrito de compra</h2>
           <div class="flex items-center gap-2">
             <input type="text" placeholder="Buscar producto o escanear"
-              class="px-3 py-2 rounded-lg bg-stone-800/50 border border-stone-700/50 text-sm w-64 focus:outline-none">
-            <button class="p-2 rounded-lg bg-stone-700 hover:bg-stone-600">
+              class="px-3 py-2 rounded-lg bg-neutral-800/50 border border-neutral-700/50 text-sm w-64 focus:outline-none">
+            <button class="p-2 rounded-lg bg-neutral-700 hover:bg-neutral-600">
               <lucide-angular [img]="Search" class="w-5 h-5"></lucide-angular>
             </button>
           </div>
@@ -21,7 +23,7 @@
 
         <!-- Row 2: categorías -->
         <div class="flex flex-wrap gap-2">
-          <button class="px-3 py-1 text-xs rounded-full bg-stone-600 hover:bg-stone-500">All</button>
+          <button class="px-3 py-1 text-xs rounded-full bg-neutral-600 hover:bg-neutral-500">Todos</button>
           <button class="px-3 py-1 text-xs rounded-full bg-blue-600/60 hover:bg-blue-500/80">Mercadería</button>
           <button class="px-3 py-1 text-xs rounded-full bg-teal-600/60 hover:bg-teal-500/80">Lácteos</button>
           <button class="px-3 py-1 text-xs rounded-full bg-orange-600/60 hover:bg-orange-500/80">Snacks</button>
@@ -32,25 +34,20 @@
       <div class="grid grid-cols-6 gap-4">
         <!-- Card producto ejemplo -->
          @for(p of products; track p.id){
-            <div class="hover:bg-stone-800/40 border-1 border-stone-300/10 rounded-xl p-3 flex flex-col justify-between">
+            <div class="hover:bg-neutral-800 border-1 border-neutral-300/15 rounded-xl p-3 flex flex-col justify-between">
                 <div class="flex justify-between items-start">
                   <!-- Superior izquierda: Nombre + Descripción -->
                   <div class="flex flex-col">
                     <h3 class="text-sm font-bold">{{ p.title }}</h3>
-                    <p class="text-xs text-stone-400">{{ p.description }}</p>
+                    <p class="text-xs text-neutral-400">{{ p.description }}</p>
                   </div>
-                  <!-- Superior derecha: Botón + -->
-                  <button class="bg-lime-700 hover:bg-lime-600 text-lg px-3 py-1 rounded-full">+</button>
+                 
                 </div>
                 <div class="flex justify-between items-center mt-3">
                   <!-- Inferior izquierda: Precio -->
                   <p class="text-lg font-semibold">$ {{ p.price }}</p>
                   <!-- Inferior derecha: Controles cantidad -->
-                  <div class="flex items-center gap-2">
-                    <button class="w-6 h-6 flex items-center justify-center rounded-md bg-stone-500/70 hover:bg-stone-500">-</button>
-                    <span class="text-sm">60</span>
-                    <button class="w-6 h-6 flex items-center justify-center rounded-md bg-stone-500/70 hover:bg-stone-500">+</button>
-                  </div>
+                  <button class="bg-cyan-600 hover:bg-cyan-700 flex items-center px-2 py-2 rounded-full text-sm font-medium"><lucide-angular [img]="plus" class="w-4 h-4 "></lucide-angular></button>
                 </div>
               </div>
          }
@@ -59,16 +56,16 @@
     </div>
 
     <!-- Columna derecha: Carrito -->
-    <div class="row-span-5 col-start-4 bg-gradient-to-br from-stone-300/15 to-stone-400/10 rounded-2xl p-4 h-[80vh] flex flex-col">
+    <div class="row-span-5 col-start-4 bg-neutral-400/10 rounded-2xl p-4 h-[80vh] flex flex-col">
       
       <!-- Encabezado -->
       <div class="mb-4 flex justify-between items-center">
         <h2 class="text-lg font-bold">Orden #12345</h2>
         <div class="grid grid-cols-2 gap-2">
-          <button class="p-2 rounded-lg border-1 border-stone-200/20 text-stone-100 hover:bg-stone-600">
+          <button class="p-2 rounded-lg border-1 border-neutral-200/20 text-stone-100 hover:bg-neutral-600">
                 <lucide-angular [img]="Edit" class="w-5 h-5"></lucide-angular>
           </button>
-          <button class="p-2 rounded-lg border-1 border-stone-200/20 text-red-400 hover:bg-stone-600">
+          <button class="p-2 rounded-lg border-1 border-neutral-200/20 text-red-400 hover:bg-neutral-600">
                 <lucide-angular [img]="Trash" class="w-5 h-5"></lucide-angular>
           </button>
         </div>
@@ -80,13 +77,26 @@
         <h2 class="text-lg font-bold">Items Detail</h2>
         
         <div class="grid grid-cols-3 text-sm py-1 ">
-          <span>2x</span><span>Leche</span><span class="text-right font-medium">$4.00</span>
+          <span><div class="flex items-center gap-2">
+                    <button class="w-6 h-6 flex items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-600">-</button>
+                    <span class="text-sm">1x</span>
+                    <button class="w-6 h-6 flex items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-600">+</button>
+                  </div>
+                </span><span>Leche</span><span class="text-right font-medium">$4.00</span>
         </div>
         <div class="grid grid-cols-3 text-sm py-1">
-          <span>1x</span><span>Pan</span><span class="text-right font-medium">$1.50</span>
+          <span><div class="flex items-center gap-2">
+                    <button class="w-6 h-6 flex items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-600">-</button>
+                    <span class="text-sm">2x</span>
+                    <button class="w-6 h-6 flex items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-600">+</button>
+                  </div></span><span>Pan</span><span class="text-right font-medium">$1.50</span>
         </div>
         <div class="grid grid-cols-3 text-sm py-1">
-          <span>3x</span><span>Queso</span><span class="text-right font-medium">$6.00</span>
+          <span><div class="flex items-center gap-2">
+                    <button class="w-6 h-6 flex items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-600">-</button>
+                    <span class="text-sm">3x</span>
+                    <button class="w-6 h-6 flex items-center justify-center rounded-full bg-neutral-700 hover:bg-neutral-600">+</button>
+                  </div></span><span>Queso</span><span class="text-right font-medium">$6.00</span>
         </div>
       </div>
 
@@ -105,19 +115,19 @@
       <div class="mb-4">
         <h2 class="text-lg font-bold mb-2">Método de pago</h2>
         <div class="grid grid-cols-2 gap-2">
-          <label class="flex items-center gap-2 p-2 rounded-lg bg-stone-700 cursor-pointer">
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-neutral-700 cursor-pointer">
             <input type="radio" name="pago" value="card" class="accent-cyan-600">
             Tarjeta
           </label>
-          <label class="flex items-center gap-2 p-2 rounded-lg bg-stone-700 cursor-pointer">
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-neutral-700 cursor-pointer">
             <input type="radio" name="pago" value="cash" class="accent-cyan-600">
             Efectivo
           </label>
-          <label class="flex items-center gap-2 p-2 rounded-lg bg-stone-700 cursor-pointer">
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-neutral-700 cursor-pointer">
             <input type="radio" name="pago" value="qr" class="accent-cyan-600">
             QR
           </label>
-          <label class="flex items-center gap-2 p-2 rounded-lg bg-stone-700 cursor-pointer">
+          <label class="flex items-center gap-2 p-2 rounded-lg bg-neutral-700 cursor-pointer">
             <input type="radio" name="pago" value="transfer" class="accent-cyan-600">
             Transferencia
           </label>
@@ -126,7 +136,7 @@
 
       <!-- Botones finales -->
       <div class="mt-auto flex justify-between gap-2">
-        <button class="w-1/2 bg-stone-600 hover:bg-stone-500 py-2 rounded-lg flex items-center justify-center gap-2">
+        <button class="w-1/2 bg-neutral-600 hover:bg-neutral-500 py-2 rounded-lg flex items-center justify-center gap-2">
           <lucide-angular [img]="Printer" class="w-4 h-4"></lucide-angular> Print
         </button>
         <button class="w-1/2 bg-cyan-600 hover:bg-cyan-500 py-2 rounded-lg flex items-center justify-center gap-2">

@@ -1,11 +1,14 @@
 <main class="min-h-screen bg-neutral-900 flex">
   <!-- Sidebar -->
-   <section class="shadow-red-500">
+   <section class="hidden md:block">
       <app-sidebar ></app-sidebar>
    </section>
   <!-- Contenedor dinámico -->
-  <section class="flex-1 p-6">
-    <div class="bg-neutral-950 backdrop-blur rounded-3xl border-2 border-neutral-200/10 p-6 shadow-lg min-h-[95vh]">
+  <section class="flex-1 ">
+    <div class="block md:hidden">
+      <app-header></app-header>
+    </div>
+    <div class="bg-neutral-950 backdrop-blur border-2 border-neutral-200/10 p-6 shadow-lg min-h-[100vh]">
       <router-outlet></router-outlet>
     </div>
   </section>

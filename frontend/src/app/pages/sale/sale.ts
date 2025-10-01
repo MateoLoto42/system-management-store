@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Header } from '../../components/layout/header/header';
-import { LucideAngularModule, Search, Printer, Check, Trash2, SquarePen } from 'lucide-angular';
+import { LucideAngularModule, Search, Printer, Check, Trash2, SquarePen,Plus } from 'lucide-angular';
 
 @Component({
   selector: 'app-sale',
@@ -15,6 +15,7 @@ export class Sale {
   CheckCircle = Check;
   Trash = Trash2;
   Edit = SquarePen;
+  plus = Plus;
 
   products = [
     { id: 1, title: 'Leche', description: 'Leche entera 1L', price: 20000 },

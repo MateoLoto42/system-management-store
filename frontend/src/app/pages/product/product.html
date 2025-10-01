@@ -1,64 +1,63 @@
 <section class="text-white">
   <!-- Header de la página -->
-  <header class="h-18 mb-10 rounded-3xl flex items-center justify-between px-6 bg-gradient-to-r from-stone-700/40 to-stone-700/30">
+  <header class="h-16 mb-5 rounded-xl flex items-center justify-between px-6 bg-neutral-700/30">
     <h1 class="text-2xl font-bold">Productos</h1>
-    <button class="bg-white text-stone-700 rounded-full p-3 shadow-md">⚙️</button>
   </header>
 
   <!-- Grid principal -->
   <div class="grid grid-cols-4 gap-5 mb-6">
     <!-- Card Métrica -->
-    <div class="bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
-      <h2 class="text-sm text-stone-400">Total Nuevos</h2>
+    <div class="bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
+      <h2 class="text-sm text-neutral-400">Total Nuevos</h2>
       <p class="text-3xl font-bold">123</p>
     </div>
 
-    <div class="bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
-      <h2 class="text-sm text-stone-400">Stock Disponible</h2>
+    <div class="bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
+      <h2 class="text-sm text-neutral-400">Stock Disponible</h2>
       <p class="text-3xl font-bold">4,567</p>
     </div>
 
-    <div class="bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
-      <h2 class="text-sm text-stone-400">Ventas del Mes</h2>
+    <div class="bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
+      <h2 class="text-sm text-neutral-400">Ventas del Mes</h2>
       <p class="text-3xl font-bold">$8,945</p>
     </div>
 
-    <div class="bg-stone-400/10 rounded-2xl p-4 flex flex-col justify-between">
-      <h2 class="text-sm text-stone-400">Proveedores Activos</h2>
+    <div class="bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
+      <h2 class="text-sm text-neutral-400">Proveedores Activos</h2>
       <p class="text-3xl font-bold">34</p>
     </div>
   </div>
 
   <!-- Tabla de productos -->
-  <div class="bg-stone-400/10 rounded-2xl p-6">
+  <div class="bg-neutral-400/10 rounded-2xl p-6">
     <!-- Header tabla -->
     <div class="flex justify-between items-center mb-4 ">
       <!-- Buscador + filtros -->
       <div class="flex items-center space-x-2">
         <input type="text" placeholder="Buscar producto..." 
-          class="px-3 py-2 rounded-lg bg-stone-700/50 border border-stone-600 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-500 text-sm" />
-        <button class="flex items-center px-3 py-2 rounded-lg bg-stone-700/50 border border-stone-600 hover:bg-stone-600 text-sm">
+          class="px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-500 text-sm" />
+        <button class="flex items-center px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 hover:bg-neutral-600 text-sm">
           <lucide-angular [img]="filter" class="w-4 h-4 mr-1"></lucide-angular>Filtrar</button>
 
-        <button (click)="toggleDropdown()" class="cursor-pointer flex items-center justify-between px-3 py-2 rounded-lg bg-stone-700/50 border border-stone-600 hover:bg-stone-600 text-sm">
+        <button (click)="toggleDropdown()" class="cursor-pointer flex items-center justify-between px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 hover:bg-neutral-600 text-sm">
           <div class="flex items-center">
             Estado
           </div>
-          <lucide-angular [img]="ChevronRight" class="w-4 h-4 text-stone-400"></lucide-angular>
+          <lucide-angular [img]="ChevronRight" class="w-4 h-4 text-neutral-400"></lucide-angular>
         </button>  
       </div>
       <!-- Botones acción -->
       <div class="flex items-center space-x-2">
-        <button class="flex items-center px-2 py-2 rounded-lg bg-stone-700/50 hover:bg-stone-600 border border-stone-600 text-sm font-medium">
+        <button class="flex items-center px-2 py-2 rounded-lg bg-neutral-700/50 hover:bg-neutral-600 border border-neutral-600 text-sm font-medium">
           <lucide-angular [img]="plus" class="w-4 h-4 mr-1"></lucide-angular>Agregar Producto</button>
-        <button class="px-4 py-2 rounded-lg bg-stone-700/50 hover:bg-stone-600 border border-stone-600 text-sm font-medium">Exportar</button>
+        <button class="px-4 py-2 rounded-lg bg-neutral-700/50 hover:bg-neutral-600 border border-neutral-600 text-sm font-medium">Exportar</button>
       </div>
     </div>
 
     <!-- Tabla -->
-    <div class="overflow-x-auto border-1 rounded-lg border-stone-100/15 ">
+    <div class="overflow-x-auto border-1 rounded-lg border-neutral-100/15 ">
       <table class="w-full text-left border-collapse">
-        <thead class="bg-stone-200/10 text-stone-300 text-sm">
+        <thead class="bg-neutral-200/10 text-neutral-300 text-sm">
           <tr>
             <th class="px-4 py-2">#</th>
             <th class="px-4 py-2">Cod</th>
@@ -72,9 +71,9 @@
             <th class="px-4 py-2 text-right">Acciones</th>
           </tr>
         </thead>
-        <tbody class="text-stone-200 text-sm divide-y divide-stone-600/50">
+        <tbody class="text-neutral-200 text-sm divide-y divide-neutral-600/50">
           @for (product of products; track product.id) {
-          <tr class="hover:bg-stone-700/20">
+          <tr class="hover:bg-neutral-700/20">
             <td class="px-4 py-3">{{ product.id }}</td>
             <td class="px-4 py-3">{{ product.codigo }}</td>
             <td class="px-4 py-3">{{ product.nombre }}</td>
@@ -104,17 +103,17 @@
             <td class="py-3 text-center relative">
                 <div class="relative inline-block">
                   <!-- Botón del menú -->
-                  <button (click)="toggleMenu(product.id)" class="p-2 rounded-full hover:bg-stone-600/60 cursor-pointer">
+                  <button (click)="toggleMenu(product.id)" class="p-2 rounded-full hover:bg-neutral-600/60 cursor-pointer">
                     <lucide-angular [img]="ellipsis" class="w-5 h-5"></lucide-angular>
                   </button>
 
                   <!-- Dropdown -->
                   @if(openMenuId === product.id){
-                    <div class="absolute right-0  mt-2 w-36 bg-stone-800 text-white rounded-xl shadow-lg border border-neutral-700/50 z-50">
+                    <div class="absolute right-0  mt-2 w-36 bg-neutral-800 text-white rounded-xl shadow-lg border border-neutral-700/50 z-50">
                     <ul class=" text-sm p-1">
                       <li>
                         <button
-                          class="w-full text-left px-4 py-2 rounded-lg text-stone-200 hover:bg-stone-700/50 flex items-center space-x-2"
+                          class="w-full text-left px-4 py-2 rounded-lg text-neutral-200 hover:bg-neutral-700 flex items-center space-x-2"
                           (click)="viewProduct(product)"
                         >
                           <lucide-angular [img]="view" class="w-4 h-4"></lucide-angular>
@@ -123,7 +122,7 @@
                       </li>
                       <li>
                         <button
-                          class="w-full text-left px-4 py-2 rounded-lg text-stone-200 hover:bg-blue-700 flex items-center space-x-2"
+                          class="w-full text-left px-4 py-2 rounded-lg text-neutral-200 hover:bg-blue-900 flex items-center space-x-2"
                           (click)="editProduct(product)"
                         >
                           <lucide-angular [img]="edit" class="w-4 h-4"></lucide-angular>
@@ -132,7 +131,7 @@
                       </li>
                       <li>
                         <button
-                          class="w-full text-left px-4 py-2 rounded-lg text-stone-200 hover:bg-red-600/60 flex items-center space-x-2"
+                          class="w-full text-left px-4 py-2 rounded-lg text-neutral-200 hover:bg-red-900 flex items-center space-x-2"
                           (click)="deleteProduct(product)"
                         >
                           <lucide-angular [img]="delete" class="w-4 h-4"></lucide-angular>
