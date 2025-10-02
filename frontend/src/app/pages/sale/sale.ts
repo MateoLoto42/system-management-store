@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { Header } from '../../components/layout/header/header';
-import { LucideAngularModule, Search, Printer, Check, Trash2, SquarePen,Plus } from 'lucide-angular';
+import { LucideAngularModule, Search, Printer, Check, Trash2, SquarePen,Plus,ChevronDown,Calendar,Filter } from 'lucide-angular';
+
 
 @Component({
   selector: 'app-sale',
   standalone: true,
-  imports: [Header,LucideAngularModule],
+  imports: [LucideAngularModule],
   templateUrl: './sale.html',
   styleUrl: './sale.css'
 })
@@ -16,6 +16,9 @@ export class Sale {
   Trash = Trash2;
   Edit = SquarePen;
   plus = Plus;
+  ChevronDown=ChevronDown;
+calendar=Calendar;
+filter=Filter;
 
   products = [
     { id: 1, title: 'Leche', description: 'Leche entera 1L', price: 20000 },
@@ -35,5 +38,14 @@ export class Sale {
     { id: 15, title: 'Tomate', description: 'Tomates cherry 250g', price: 2240 },
     { id: 16, title: 'Lechuga', description: 'Lechuga romana', price: 1970 },
   ];
+
+activeTab: 'carrito' | 'historial' = 'carrito';
+
+historial = [
+  { id: 1001, fecha: '2025-09-30', cliente: 'Juan Pérez', total: 1200, metodoPago: 'Tarjeta', estado: 'Pagado' },
+  { id: 1002, fecha: '2025-09-30', cliente: 'María Gómez', total: 800, metodoPago: 'Efectivo', estado: 'Anulado' },
+  { id: 1003, fecha: '2025-09-29', cliente: 'Carlos Ruiz', total: 1500, metodoPago: 'Transferencia', estado: 'Pagado' }
+];
+ 
 
 }

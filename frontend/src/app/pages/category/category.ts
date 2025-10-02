@@ -15,9 +15,10 @@ export class Category {
       ellipsis = Ellipsis;
       ChevronRight=ChevronRight;
   
-      openMenuId: number | null = null;
+    openMenuId: number | null = null;
   
-      isOpen = false;
+    isOpen = false;
+    
     toggleDropdown() {
       this.isOpen = !this.isOpen;
     }

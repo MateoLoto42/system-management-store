@@ -1,1 +1,115 @@
-<p>supplier works!</p>
+<section class="text-white">
+  <!-- Header de la página -->
+  <header class="h-16 mb-5 rounded-xl flex items-center justify-between px-6 bg-neutral-700/30">
+    <h1 class="text-2xl font-bold">Proveedores</h1>
+  </header>
+
+  <!-- Grid principal -->
+  <div class="grid grid-cols-1 gap-5">
+    <!-- Tabla -->
+    <div class="bg-neutral-400/10 rounded-2xl p-6 ">
+        <!-- Header tabla -->
+        <div class="flex justify-between items-center mb-4 ">
+        <!-- Buscador + filtros -->
+        <div class="flex items-center space-x-2">
+            <input type="text" placeholder="Buscar cliente..." 
+            class="px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm" />
+            <button class="flex items-center px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 hover:bg-neutral-600 text-sm">
+                <lucide-angular [img]="filter" class="w-4 h-4 mr-2"></lucide-angular>Filtrar<lucide-angular [img]="ChevronDown" class="ml-0.5 w-5 h-5 text-neutral-400"></lucide-angular></button>
+            <button (click)="toggleDropdown()" class="cursor-pointer flex items-center justify-between px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 hover:bg-neutral-600 text-sm">
+                <div class="flex items-center">
+                    Estado
+                </div>
+                 <lucide-angular [img]="ChevronDown" class="ml-0.5 w-5 h-5 text-neutral-400"></lucide-angular>
+            </button> 
+        </div>
+        <!-- Botones acción -->
+        <div class="flex items-center space-x-2">
+            <button class="flex items-center px-2 py-2 rounded-lg bg-neutral-700/50 hover:bg-neutral-600 border border-neutral-600 text-sm font-medium">
+            <lucide-angular [img]="plus" class="w-4 h-4 mr-1"></lucide-angular>Agregar Nuevo</button>
+            <button class="px-4 py-2 rounded-lg bg-neutral-700/50 hover:bg-neutral-600 border border-neutral-600 text-sm font-medium">Exportar</button>
+        </div>
+        </div>
+
+        <!-- Tabla -->
+        <div class="overflow-x-auto border-1 rounded-lg border-neutral-100/15 h-[65vh] ">
+        <table class="w-full text-left border-collapse ">
+            <thead class="bg-neutral-200/10 text-neutral-300 text-sm">
+            <tr>
+                <th class="px-4 py-2">#</th>
+                <th class="px-4 py-2">Nombre</th>
+                <th class="px-4 py-2">Telefono</th>
+                <th class="px-4 py-2">Direccion</th>
+                <th class="px-4 py-2">Email</th>
+                <th class="px-4 py-2">Estado</th>
+                <th class="px-4 py-2 text-right">Acciones</th>
+            </tr>
+            </thead>
+            <tbody class="text-neutral-200 text-sm divide-y divide-neutral-700/40">
+            @for (supplier of suppliers; track supplier.id) {
+            <tr class="hover:bg-neutral-700/20">
+                <td class="px-4 py-3">{{ supplier.id }}</td>
+                <td class="px-4 py-3">{{ supplier.nombre }}</td>
+                <td class="px-4 py-3">{{ supplier.telefono }}</td>
+                <td class="px-4 py-3">{{ supplier.direccion }}</td>
+                <td class="px-4 py-3">{{ supplier.email }}</td>
+                <td class="px-4 py-3">
+                     @if(supplier.estado){
+                        <span class="px-2 py-1 text-xs rounded-full bg-green-500/20 text-green-400">Activo</span>
+                    }@else{
+                        <span class="px-2 py-1 text-xs rounded-full bg-red-500/20 text-red-400">Inactivo</span>
+                    }
+                </td>
+                <td class="py-3 text-center relative">
+                <div class="relative inline-block">
+                  <!-- Botón del menú -->
+                  <button (click)="toggleMenu(supplier.id)" class="p-2 rounded-full hover:bg-neutral-600/60 cursor-pointer">
+                    <lucide-angular [img]="ellipsis" class="w-5 h-5"></lucide-angular>
+                  </button>
+
+                  <!-- Dropdown -->
+                  @if(openMenuId === supplier.id){
+                    <div class="absolute right-0  mt-2 w-36 bg-neutral-800 text-white rounded-xl shadow-lg border border-neutral-700/50 z-50">
+                    <ul class=" text-sm p-1">
+                      <li>
+                        <button
+                          class="w-full text-left px-4 py-2 rounded-lg text-neutral-200 hover:bg-neutral-700 flex items-center space-x-2"
+                          (click)="viewCustomer(supplier)"
+                        >
+                          <lucide-angular [img]="view" class="w-4 h-4"></lucide-angular>
+                          <span>Ver</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="w-full text-left px-4 py-2 rounded-lg text-neutral-200 hover:bg-blue-900 flex items-center space-x-2"
+                          (click)="editCustomer(supplier)"
+                        >
+                          <lucide-angular [img]="edit" class="w-4 h-4"></lucide-angular>
+                          <span>Editar</span>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="w-full text-left px-4 py-2 rounded-lg text-neutral-200 hover:bg-red-900 flex items-center space-x-2"
+                          (click)="deleteCustomer(supplier)"
+                        >
+                          <lucide-angular [img]="delete" class="w-4 h-4"></lucide-angular>
+                          <span>Eliminar</span>
+                        </button>
+                      </li>
+                    </ul>
+                    </div>
+                  }
+                  
+                </div>
+              </td>
+            </tr>
+            }
+            <!-- Más filas... -->
+            </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+</section>

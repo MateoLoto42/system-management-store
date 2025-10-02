@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Header } from '../../components/layout/header/header';
+
 import { 
   HandCoins,
   LucideAngularModule,
@@ -14,7 +14,7 @@ import { BaseChartDirective } from 'ng2-charts';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [Header,LucideAngularModule,BaseChartDirective],
+  imports: [LucideAngularModule,BaseChartDirective],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })

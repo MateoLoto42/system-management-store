@@ -1,12 +1,29 @@
 <section class="text-white">
   <header class="h-16 mb-5 rounded-xl flex items-center justify-between px-6 bg-neutral-700/30">
-    <h1 class="text-2xl font-bold">Punto de Venta</h1>
+    <h1 class="text-2xl font-bold">Ventas</h1>
   </header>
-
-  <div class="grid grid-cols-4 grid-rows-5 gap-4">
+  <!-- Botones para cambiar vista -->
+  <div class="flex gap-2 mb-5">
+    <button 
+      class="px-4 py-2 rounded-lg  hover:bg-neutral-600 border border-neutral-600 text-sm font-medium"
+      [class.bg-neutral-600]="activeTab === 'carrito'"
+      [class.bg-neutral-800]="activeTab !== 'carrito'"
+      (click)="activeTab = 'carrito'">
+      Carrito
+    </button>
+    <button 
+      class="px-4 py-2 rounded-lg  hover:bg-neutral-600 border border-neutral-600 text-sm font-medium"
+      [class.bg-neutral-600]="activeTab === 'historial'"
+      [class.bg-neutral-800]="activeTab !== 'historial'"
+      (click)="activeTab = 'historial'">
+      Historial
+    </button>
+  </div>
+    <!-- Vista Carrito -->
+   @if(activeTab === 'carrito'){
+    <div class="grid grid-cols-4 grid-rows-5 gap-4">
     <!-- Columna izquierda: Productos -->
     <div class="col-span-3 row-span-5 bg-neutral-400/10 rounded-2xl p-4">
-      
       <!-- Header -->
       <div class="grid grid-rows-2 gap-4 mb-4">
         <!-- Row 1 -->
@@ -145,5 +162,85 @@
       </div>
     </div>
   </div>
+   } 
+  
+  <!-- Vista Historial -->
+   @if(activeTab === 'historial'){
+  <div class="bg-neutral-400/10 rounded-2xl p-6">
+      <h2 class="text-xl font-bold mb-4">Historial de Ventas</h2>
+      <div class="flex items-center space-x-2 mb-4">
+            <input type="text" placeholder="Buscar cliente..." 
+            class="px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm" />
+            <button class="cursor-pointer flex items-center px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 hover:bg-neutral-600 text-sm">
+                <lucide-angular [img]="filter" class="w-4 h-4 mr-2"></lucide-angular>Filtrar<lucide-angular [img]="ChevronDown" class="ml-0.5 w-5 h-5 text-neutral-400"></lucide-angular></button>
+            <button class="cursor-pointer flex items-center justify-between px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 hover:bg-neutral-600 text-sm">
+                <div class="flex items-center">
+                    Estado
+                </div>
+                 <lucide-angular [img]="ChevronDown" class="ml-0.5 w-5 h-5 text-neutral-400"></lucide-angular>
+            </button> 
+            <button  class="cursor-pointer flex items-center justify-between px-3 py-2 rounded-lg bg-neutral-700/50 border border-neutral-600 hover:bg-neutral-600 text-sm">
+                <lucide-angular [img]="calendar" class="w-5 h-5 mr-2 text-neutral-400"></lucide-angular>  
+                    Fecha
+                 <lucide-angular [img]="ChevronDown" class="ml-0.5 w-5 h-5 text-neutral-400"></lucide-angular>
+            </button>
+             <!-- Dropdown 
+              @if(isDropdownOpen){
+              <div class="absolute left-80 mt-60 w-64 rounded-lg shadow-lg bg-neutral-800 border border-neutral-600 p-3 z-50">
+                <label class="block text-xs text-neutral-400 mb-1">Desde</label>
+                <input type="date" 
+                      class="w-full rounded-md bg-neutral-700 text-neutral-200 text-sm px-2 py-1 border border-neutral-600 mb-2"/>
+                <label class="block text-xs text-neutral-400 mb-1">Hasta</label>
+                <input type="date" 
+                      class="w-full rounded-md bg-neutral-700 text-neutral-200 text-sm px-2 py-1 border border-neutral-600 mb-2"/>
+                <button (click)="aplicarFiltro()" 
+                        class="w-full mt-2 bg-cyan-600 hover:bg-cyan-500 text-white text-sm px-3 py-2 rounded-lg">
+                  Aplicar
+                </button>
+              </div>
+              }-->
+  
+      </div>
+      <table class="w-full text-sm text-left border-collapse">
+        <thead>
+          <tr class="bg-neutral-700 text-neutral-300">
+            <th class="px-4 py-2">ID Venta</th>
+            <th class="px-4 py-2">Fecha</th>
+            <th class="px-4 py-2">Cliente</th>
+            <th class="px-4 py-2">Total</th>
+            <th class="px-4 py-2">Método de Pago</th>
+            <th class="px-4 py-2">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(h of historial; track h.id){
+          <tr class="border-b border-neutral-600 hover:bg-neutral-700/40">
+            <td class="px-4 py-2">{{ h.id }}</td>
+            <td class="px-4 py-2">{{ h.fecha }}</td>
+            <td class="px-4 py-2">{{ h.cliente }}</td>
+            <td class="px-4 py-2">$ {{ h.total }}</td>
+            <td class="px-4 py-2">{{ h.metodoPago }}</td>
+            <td class="px-4 py-2">
+              @if(h.estado === 'Pagado'){
+              <span class="text-green-400">
+                {{ h.estado }}
+              </span>
+              }@else{
+                <span class="text-red-400">
+                {{ h.estado }}
+              </span>
+              }
+              
+            </td>
+          </tr>
+          }
+          
+        </tbody>
+      </table>
+    </div>
+    }
+  
+
+
 </section>
 

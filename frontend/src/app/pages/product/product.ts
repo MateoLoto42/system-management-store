@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChevronRight, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizontal, SquarePen, Trash2 } from 'lucide-angular';
+import { ChevronDown, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizontal, SquarePen, Trash2,Calendar } from 'lucide-angular';
 
 @Component({
   selector: 'app-product',
@@ -14,14 +14,27 @@ import { ChevronRight, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizont
     edit=SquarePen;
     view=Eye;
     ellipsis = Ellipsis;
-    ChevronRight=ChevronRight;
+    ChevronDown=ChevronDown;
+    calendar=Calendar;
 
     openMenuId: number | null = null;
 
     isOpen = false;
 
+    isDropdownOpen = false;
+    fechaInicio: string | null = null;
+    fechaFin: string | null = null;
+
+
+
+    aplicarFiltro() {
+      console.log("Filtro aplicado desde:", this.fechaInicio, "hasta:", this.fechaFin);
+      this.isDropdownOpen = false;
+    }
+
+
     toggleDropdown() {
-      this.isOpen = !this.isOpen;
+      this.isDropdownOpen = !this.isDropdownOpen;
     }
 
     toggleMenu(id: number) {
@@ -52,7 +65,7 @@ import { ChevronRight, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizont
       stock_minimo: 5,
       categoria: "Electrónica",
       proveedor: "Tech Supplier SA",
-      activo: false,
+      marca: "Samsung",
     },
     {
       id: 2,
@@ -65,7 +78,7 @@ import { ChevronRight, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizont
       stock_minimo: 10,
       categoria: "Accesorios",
       proveedor: "Music World",
-      activo: true,
+      marca: "Samsung",
     },
     {
       id: 3,
@@ -78,7 +91,7 @@ import { ChevronRight, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizont
       stock_minimo: 3,
       categoria: "Telefonía",
       proveedor: "Mobile Hub",
-      activo: true,
+      marca: "Samsung",
     },
     {
       id: 4,
@@ -91,7 +104,7 @@ import { ChevronRight, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizont
       stock_minimo: 2,
       categoria: "Muebles",
       proveedor: "Gaming Store SRL",
-      activo: false,
+      marca: "Samsung",
     },
     {
       id: 5,
@@ -104,7 +117,7 @@ import { ChevronRight, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizont
       stock_minimo: 2,
       categoria: "Electrónica",
       proveedor: "Vision Tech",
-      activo: true,
+      marca: "Samsung",
     },
     {
       id: 6,
@@ -117,7 +130,7 @@ import { ChevronRight, Ellipsis, Eye, LucideAngularModule, Plus, SlidersHorizont
       stock_minimo: 4,
       categoria: "Oficina",
       proveedor: "Print Solutions",
-      activo: true,
+      marca: "Samsung",
     },
   ];
 
