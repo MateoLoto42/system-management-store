@@ -5,11 +5,10 @@
     <h1 class="text-2xl font-bold">Dashboard</h1>
   </header>
 
-  
   <!-- Grid principal -->
   <div class="grid grid-cols-4 grid-rows-5 gap-5">
     <!-- 1: Gráfico estadístico -->
-    <div class="col-span-2 row-span-2 bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="col-span-4 row-span-2 md:col-span-2 md:row-span-2  bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
       <div class="rounded-xl h-56">
           <h3 class="text-lg font-bold mb-4 ">Productos   Stock Minimo</h3>
           <canvas baseChart 
@@ -21,7 +20,7 @@
     </div>
 
     <!-- 2: Ganancias totales -->
-    <div class="col-span-2 row-span-2 bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="col-span-4 row-span-2 md:col-span-2 md:row-span-2 bg-neutral-400/10 rounded-2xl p-4 flex flex-col justify-between">
       <div class="rounded-xl h-56">
           <h3 class="text-lg font-bold mb-4 ">Ganacias Totales Mensuales</h3>
           <canvas baseChart 
@@ -33,7 +32,7 @@
     </div>
 
     <!-- 3: Historial (tabla) -->
-    <div class="col-span-2 row-span-3 bg-neutral-400/10 rounded-2xl p-4 overflow-auto">
+    <div class="col-span-4 row-span-1 md:col-span-2 md:row-span-3 bg-neutral-400/10 rounded-2xl p-4 overflow-auto">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold mb-4">Historial de ventas</h3>
           <div class="relative inline-block text-left">
@@ -98,7 +97,7 @@
     </div>
 
     <!-- 4: Total Ventas -->
-    <div class="col-start-3 row-start-3 bg-lime-400/70 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="col-span-2 md:col-span-1 col-start-1 row-start-3 md:col-start-3 md:row-start-3  bg-lime-400/70 rounded-2xl p-4 flex flex-col justify-between">
       <!-- Header -->
       <div class="flex items-center space-x-2 mb-4">
         <div class="bg-neutral-100 rounded-full p-2">
@@ -107,7 +106,7 @@
         <h2 class="text-xl font-bold text-neutral-100">Cant. Ventas Hoy</h2>
       </div>
       <div class="flex justify-between items-end">
-        <p class="text-3xl font-bold text-lime-200">1,234</p>
+        <p class="text-3xl font-bold text-lime-200">125</p>
         <div class="flex flex-col items-end">
           <span class="text-green-200 font-semibold">+2.4%</span>
           <span class="text-xs text-lime-100">Último mes</span>
@@ -117,7 +116,7 @@
 
 
     <!-- 5: Usuarios -->
-    <div class="col-start-4 row-start-3 bg-sky-400/70 rounded-2xl p-4 flex flex-col justify-between ">
+    <div class="col-span-2 md:col-span-1 col-start-3 row-start-3 md:col-start-4 md:row-start-3 bg-sky-400/70 rounded-2xl p-4 flex flex-col justify-between ">
       <div class="flex items-center space-x-2 mb-4">
         <div class="bg-neutral-100 rounded-full p-2">
             <lucide-angular [img]="user" class="w-8 h-8 text-sky-600/60"></lucide-angular>
@@ -136,7 +135,7 @@
     </div>
 
     <!-- 6: Stock -->
-    <div class="col-start-3 row-start-4 bg-orange-400/70 rounded-2xl p-4 flex flex-col justify-between">
+    <div class="col-span-2 md:col-span-1 col-start-3 row-start-4 md:col-start-3 md:row-start-4 bg-orange-400/70 rounded-2xl p-4 flex flex-col justify-between">
       <div class="flex items-center space-x-2 mb-4">
         <div class="bg-neutral-100 rounded-full p-2">
             <lucide-angular [img]="layers" class="w-8 h-8 text-orange-600/60"></lucide-angular>
@@ -155,7 +154,7 @@
     </div>
 
     <!-- 7: Proveedores -->
-    <div class="col-start-4 row-start-4 bg-rose-400/70 rounded-2xl p-4 flex flex-col justify-between ">
+    <div class="col-span-2 md:col-span-1 col-start-1 row-start-4 md:col-start-4 md:row-start-4 bg-rose-400/70 rounded-2xl p-4 flex flex-col justify-between ">
       <div class="flex items-center space-x-2 mb-4">
         <div class="bg-neutral-100 rounded-full p-2">
             <lucide-angular [img]="bookuser" class="w-8 h-8 text-rose-600/60"></lucide-angular>
@@ -174,7 +173,7 @@
     </div>
 
     <!-- 8: Metodos de Pago -->
-    <div class="col-span-2 col-start-3 row-start-5 bg-neutral-400/10 rounded-2xl p-4 flex flex-col ">
+    <div class="col-span-4 col-start-1 md:col-span-2 md:col-start-3 row-start-5 bg-neutral-400/10 rounded-2xl p-4 flex flex-col ">
       <div class="flex justify-between items-center mb-1">
         <h3 class="text-lg font-semibold mb-4 text-neutral-200">Metodos de pago mas usados</h3>
         
